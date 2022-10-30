@@ -25,9 +25,9 @@ public class Bar : MonoBehaviour
     private void Update()
     {
         if (isRotating) {
-            // I measured 1 rotation every 1.5 seconds
-            // 360/1.5 = 270 degrees/second
-            this.transform.Rotate(new Vector3(0f, 0f, 1f * direction) * 270 * Time.deltaTime);
+            // I measured 1 rotation every 3 seconds
+            // 360/3 = 120 degrees/second
+            this.transform.Rotate(0, 0, direction * 120 * Time.deltaTime);
         }
     }
 }
