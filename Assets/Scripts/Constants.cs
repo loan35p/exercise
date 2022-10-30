@@ -5,5 +5,5 @@ using UnityEngine;
 public static class Constants
 {
     // Estimated this one
-    public static float fadeSpeed = 10f;
+    public static float fadeSpeed = 20f;
 }
