@@ -16,6 +16,7 @@ public class Switch : MonoBehaviour
     private float clickPos;
     private float lastToggle; 
     private bool isActive = true;
+    private bool isFlipped = false;
 
     public void Deactivate() {
         isActive = false;
@@ -30,12 +31,13 @@ public class Switch : MonoBehaviour
     }
 
     private void OnMouseUp() {
-        if (Input.mousePosition.y - clickPos > 20 && isActive) {
+        if (Input.mousePosition.y - clickPos > 20 && isActive && !isFlipped) {
             onState.SetActive(false);
             offState.SetActive(true);
             lastToggle = Time.time;
             bar.ToggleDirection();
             mainManager.SwitchFlip();
+            isFlipped = true;
         }
     }
 
@@ -43,6 +45,7 @@ public class Switch : MonoBehaviour
         if (Time.time - lastToggle > 2.25) {
             onState.SetActive(true);
             offState.SetActive(false);
+            isFlipped = false;
         }
     }
 }

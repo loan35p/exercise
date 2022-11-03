@@ -65,6 +65,13 @@ public class MainManager : MonoBehaviour
         toggleButton.Reset();
     }
 
+    private void Awake() {
+        buttonCounter = 0;
+        switchCounter = 0;
+        buttonText.text = buttonCounter.ToString();
+        switchText.text = switchCounter.ToString();
+    }
+
     private void GameOver() {
         flipSwitch.Deactivate();
         toggleButton.Deactivate();
